@@ -8,7 +8,7 @@
 <body>
     <span>X100</span>
     <br>
-    <input type="number" placeholder="giá tx" id="giaTX" autofocus>
+    <input type="number" placeholder="giá tx" id="giaTX">
     <input type="number" placeholder="giá trên" id="giaTren">
     <input type="number" placeholder="giá đưới" id="giaDuoi"  onfocusout="lucky()">
     <br>
@@ -17,6 +17,7 @@
     <script>
         window.onload = function()
         {
+            document.getElementById("giaTX").focus();
             document.getElementById("giaTX").click();
         };
 
