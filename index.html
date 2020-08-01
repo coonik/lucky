@@ -8,13 +8,19 @@
 <body>
     <span>X100</span>
     <br>
-    <input type="number" tabindex="1" placeholder="giá tx" id="giaTX" autofocus>
-    <input type="number" tabindex="2" placeholder="giá trên" id="giaTren">
-    <input type="number" tabindex="3" placeholder="giá đưới" id="giaDuoi"  onfocusout="lucky()">
+    <input type="number" placeholder="giá tx" id="giaTX" onkeypress=key(event) autofocus>
+    <input type="number" placeholder="giá trên" id="giaTren" onkeypress=key(event)>
+    <input type="number" placeholder="giá đưới" id="giaDuoi" onkeypress=key(event) onfocusout="lucky()">
     <br>
     <input id="lucky" style="color: red; border:none; font-size: 30px;"></input>
 
     <script>
+        function key(event) {
+            let kt = event.path[0].id;
+            if (event.charCode == 13) {
+                kt === "giaTX" ? document.getElementById("giaTren").focus() :  kt === "giaTren" ? document.getElementById("giaDuoi").focus() : document.getElementById("giaTX").focus();
+            }
+        }
         function lucky() {
             let g = Number.parseInt(document.getElementById("giaTX").value);
             let t = Number.parseInt(document.getElementById("giaTren").value);
