@@ -15,6 +15,11 @@
     <input id="lucky" style="color: red; border:none; font-size: 30px;"></input>
 
     <script>
+        window.onload = function()
+        {
+            document.getElementById("giaTX").focus();
+        };
+
         function lucky() {
             let g = Number.parseInt(document.getElementById("giaTX").value);
             let t = Number.parseInt(document.getElementById("giaTren").value);
