@@ -27,7 +27,12 @@
             let g = Number.parseInt(document.getElementById("giaTX").value);
             let t = Number.parseInt(document.getElementById("giaTren").value);
             let d = Number.parseInt(document.getElementById("giaDuoi").value);
-            console.log(g, t, d);
+            
+            if (t === 10)
+                t = 100;
+            if (d === 10)
+                d = 100;
+                
             if (t<0)
                 t+=200;
             if (d<0)
