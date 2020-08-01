@@ -8,23 +8,26 @@
 <body>
     <span>X100</span>
     <br>
-    <input type="number" placeholder="giá tx" id="giaTX" onkeypress=key(event) autofocus>
-    <input type="number" placeholder="giá trên" id="giaTren" onkeypress=key(event)>
-    <input type="number" placeholder="giá đưới" id="giaDuoi" onkeypress=key(event) onfocusout="lucky()">
+    <input type="number" placeholder="giá tx" id="giaTX" onkeypress=key(this) autofocus>
+    <input type="number" placeholder="giá trên" id="giaTren" onkeypress=key(this)>
+    <input type="number" placeholder="giá đưới" id="giaDuoi" onkeypress=key(this,event)>
     <br>
     <input id="lucky" style="color: red; border:none; font-size: 30px;"></input>
 
     <script>
-        function key(event) {
-            let kt = event.path[0].id;
-            if (event.charCode == 13) {
-                kt === "giaTX" ? document.getElementById("giaTren").focus() :  kt === "giaTren" ? document.getElementById("giaDuoi").focus() : document.getElementById("giaTX").focus();
+        function key(thisTemp, event = null) {
+            let kt = thisTemp.id;
+            let val = Math.abs(Number.parseInt(thisTemp.value));
+            if ((val > 9 && kt === "giaTX") || (!isNaN(val) && kt !== "giaTX")) {
+                event?.key ? document.getElementById("giaDuoi").value += event.key : document.getElementById("giaDuoi").value = "";
+                kt === "giaTX" ? document.getElementById("giaTren").focus() :  kt === "giaTren" ? document.getElementById("giaDuoi").focus() : lucky();
             }
         }
         function lucky() {
             let g = Number.parseInt(document.getElementById("giaTX").value);
             let t = Number.parseInt(document.getElementById("giaTren").value);
             let d = Number.parseInt(document.getElementById("giaDuoi").value);
+            console.log(g, t, d);
             if (t<0)
                 t+=200;
             if (d<0)
