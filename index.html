@@ -15,6 +15,9 @@
     <input id="lucky" style="color: red; border:none; font-size: 30px;"></input>
 
     <script>
+        window.onload = () => {
+            document.getElementById("giaTX").click();
+        }
         function key(thisTemp, event = null) {
             let kt = thisTemp.id;
             let val = Math.abs(Number.parseInt(thisTemp.value));
