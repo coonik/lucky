@@ -12,8 +12,6 @@
     <input type="number" placeholder="giá trên" id="giaTren">
     <input type="number" placeholder="giá đưới" id="giaDuoi">
     <button style="color: red; background-color: yellow; border: 1px solid yellow; border-radius: 2px;" onclick="lucky()">LUCKY</button>
-    <br>
-    <input id="lucky" style="color: red; border:none; font-size: 30px;"></input>
 
     <script>
         function lucky() {
@@ -37,7 +35,7 @@
             let tren=Math.round(t);
             let duoi=Math.round(d);
             let kq = Math.floor(Math.random() * (tren - duoi) ) + duoi;
-            document.getElementById("lucky").value = kq < g ? "Dưới" : kq > g ? "Trên" : "Hòa";
+            alert(kq < g ? "Dưới" : kq > g ? "Trên" : "Hòa");
         }
     </script>
 </body>
